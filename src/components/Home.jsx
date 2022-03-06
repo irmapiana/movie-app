@@ -55,7 +55,7 @@ export function Home() {
                     ></ReactStars>
                     <h1>{item.title}</h1>
                     <p style={{fontSize: 15, width: "50%"}}>{item.overview}</p>
-                    <Button variant="outline-warning">Watch Now</Button>
+                    <Button style={{border: '1px solid',borderRadius: '30px'}} variant="outline-warning">Watch Now</Button>
                 </div>
 
             </div>
@@ -65,19 +65,20 @@ export function Home() {
     const movieList = movieByGenre.slice(0, 4).map((item, index) => {
         return (
           <div className="col-md-3 col-sm-6" key={index}>
-            <div className="card" style={{padding: 8}}>
+            <div className="card">
               <Link to={`/movie/${item.id}`}>
                 <img className="img-fluid" src={item.poster} alt={item.title}></img>
               </Link>
             </div>
-            <div className="mt-3">
-              <p style={{ fontWeight: "bolder" }}>{item.title}</p>
-              <p>Rated: {item.rating}</p>
-              <ReactStars
-                count={item.rating}
-                size={20}
-                color1={"#f4c10f"}
-              ></ReactStars>
+            <div className="title">
+              <div className="mt-3">
+                <ReactStars
+                  count={item.rating}
+                  size={20}
+                  color1={"#fffff"}
+                ></ReactStars>
+                <p style={{ fontWeight: "bolder" }}>{item.title}</p>
+              </div>
             </div>
           </div>
         );
@@ -91,14 +92,15 @@ export function Home() {
                 <img className="img-fluid" src={item.poster} alt={item.title}></img>
               </Link>
             </div>
-            <div className="mt-3">
-              <p style={{ fontWeight: "bolder" }}>{item.title}</p>
-              <p>Rated: {item.rating}</p>
-              <ReactStars
-                count={item.rating}
-                size={20}
-                color1={"#f4c10f"}
-              ></ReactStars>
+            <div className="title">
+              <div className="mt-3">
+                <ReactStars
+                  count={item.rating}
+                  size={20}
+                  color1={"#f4c10f"}
+                ></ReactStars>
+                <p style={{ fontWeight: "bolder" }}>{item.title}</p>
+              </div>
             </div>
           </div>
         );
@@ -112,14 +114,15 @@ export function Home() {
                 <img className="img-fluid" src={item.poster} alt={item.title}></img>
               </Link>
             </div>
-            <div className="mt-3">
-              <p style={{ fontWeight: "bolder" }}>{item.title}</p>
-              <p>Rated: {item.rating}</p>
-              <ReactStars
-                count={item.rating}
-                size={20}
-                color1={"#f4c10f"}
-              ></ReactStars>
+            <div className="title">
+              <div className="mt-3">
+                <ReactStars
+                  count={item.rating}
+                  size={20}
+                  color1={"#f4c10f"}
+                ></ReactStars>
+                <p style={{ fontWeight: "bolder" }}>{item.title}</p>
+              </div>
             </div>
           </div>
         );

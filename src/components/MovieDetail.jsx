@@ -36,16 +36,10 @@ let genres = [];
     });
   }
 
-  const castList = casts.slice(0, 4).map((c, i) => {
+  const castList = casts.slice(0,4).map((c, i) => {
     return (
       <div className="col-md-3 text-center" key={i}>
-        <p className="font-weight-bold text-center">{c.name}</p>
-        <p
-          className="font-weight-light text-center"
-          style={{ color: "#5a606b" }}
-        >
-          {c.character}
-        </p>
+        <p className="font-weight-bold text-left">{c.name}</p>
       </div>
     );
   });
@@ -58,14 +52,15 @@ let genres = [];
             <img className="img-fluid" src={item.poster} alt={item.title}></img>
           </Link>
         </div>
-        <div className="mt-3">
-          <p style={{ fontWeight: "bolder" }}>{item.title}</p>
-          <p>Rated: {item.rating}</p>
-          <ReactStars
-            count={item.rating}
-            size={20}
-            color1={"#f4c10f"}
-          ></ReactStars>
+        <div className="title">
+          <div className="mt-3">
+            <ReactStars
+              count={item.rating}
+              size={20}
+              color1={"#f4c10f"}
+            ></ReactStars>
+            <p style={{ fontWeight: "bolder" }}>{item.title}</p>
+          </div>
         </div>
       </div>
     );
@@ -74,42 +69,51 @@ let genres = [];
   return(
     <div className="container">
       <div className="row mt-2">
-        <div className="col text-left" style={{height: 400, width: '100%'}}>
-            <img className="img-fluid" src={`http://image.tmdb.org/t/p/original/${detail.poster}`}
+        <div className="col text-left" style={{height: 650, width: '100%'}}>
+            <img className="img-fluid" src={`http://image.tmdb.org/t/p/original/${detail.poster_path}`}
             alt={detail.title}>
             </img>
-            <div className="row mt-3">
-              <div className="col">
-                <ul className="list-inline">{genresList}</ul>
+            <div className="caption">
+              <div className="row mt-3">
+                <div className="col">
+                  <ul className="list-inline" >{genresList}</ul>
+                </div>
               </div>
-            </div>
-            <div
-              className="carousel-captiom"
-              style={{textAlign: "left", fontSize: 30}}
-            >
-              <ReactStars
-                count={detail.vote_average}
-                size={20}
-                color={"#f4c8r"}></ReactStars>
-              {detail.title} 
+              <div
+                className="carousel-captiom"
+                style={{textAlign: "left", fontSize: 30}}
+              >
+                <ReactStars
+                  count={detail.vote_average}
+                  size={20}
+                  color={"#f4c8r"}></ReactStars>
+                  <p style={{color:"white"}}> {detail.title} </p>
+              </div>
             </div>
         </div>
         
-        <div className="col text-center" style={{textAlign: "left", fontSize: 18}}>
-          {detail.overview}
+        <div className="col text-left" style={{fontSize: 18}}>
+          <h2>Synopsis</h2>
+          <div style={{color:"grey"}}>
+            {detail.overview}
+          </div>
         </div>
-        <div className="col text-center" style={{textAlign: "left", fontSize: 18}}>
+        <div className="col text-left" style={{fontSize: 12, fontWeight:"bold"}}>
+          casts
           {castList}
         </div>
       </div>
 
-      <div className="row mt-3">
+      <div className="row mt-2">
         <div className="col">
-          <p style={{color: "#5a686b", fontWeight: "bolder"}}>You Might Also Like This!</p>
+          <h2>You Might Also Like This!</h2>
+            <div className="gold" style={{textAlign: "right", fontSize:15}}>
+              See All <i className="far fa-angle-right"></i>
+            </div>
         </div>
       </div>
 
-      <div className="row mt-3">{similarMovieList}</div>
+      <div className="row mt-2">{similarMovieList}</div>
     </div>
   )
 }
