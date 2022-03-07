@@ -50,3 +50,13 @@ code {
   left: 10%;
   bottom: 20%;
 }
+
+.casts {
+  line-height: 30px;
+  max-height: calc(30px * 5);
+  overflow: hidden;
+}
+
+.button-readmore:hover {
+  background: #ccc;
+}

@@ -36,9 +36,9 @@ let genres = [];
     });
   }
 
-  const castList = casts.slice(0,4).map((c, i) => {
+  const castList = casts.slice().map((c, i) => {
     return (
-      <div className="col-md-3 text-center" key={i}>
+      <div className="col-md-3 text-left" key={i}>
         <p className="font-weight-bold text-left">{c.name}</p>
       </div>
     );
@@ -99,8 +99,11 @@ let genres = [];
           </div>
         </div>
         <div className="col text-left" style={{fontSize: 12, fontWeight:"bold"}}>
-          casts
-          {castList}
+          Casts
+          <div className="casts">
+            {castList}
+          </div>
+          <label className="button-readmore" style={{color:"goldenrod"}}>more</label>
         </div>
       </div>
 
